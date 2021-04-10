@@ -1,0 +1,226 @@
+
+*{
+	font-family: "Lato-normal", sans-serif !important;
+}
+@font-face {
+  font-family: Lato-normal;
+  font-weight: 200;
+  src: url('../fonts/Lato-Regular.woff');
+}
+@font-face {
+  font-family: 'Sansation_Regular';
+  src: url('../fonts/Sansation_Regular-webfont.ttf');
+}
+@font-face {
+  font-family: 'Sansation_Regular';
+  src: url('../fonts/Sansation_Regular-webfont.woff') format('woff'), url('../fonts/Sansation_Regular-webfont.ttf') format('truetype');
+}
+@font-face {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/Lato-Black-webfont.woff');
+}
+html {
+  height: 100%;
+  overflow: hidden;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+ul,
+li,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none; 
+  -webkit-user-select: none;
+  -webkit-highlight: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+li {
+  list-style: none;
+}
+.fonts {
+  font-family: 'Lato', 'Lato-normal', 'Sansation_Regular';
+}
+/*For anchor Tag*/
+a:hover, a:active {
+  outline: 0;
+  text-decoration: none;
+}
+.ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.ellipsis_w80p{
+  width: 80%
+}
+.ellipsis_w98p{
+  width: 98%
+}
+
+/* --------Font sizes---------------*/
+.font_12{
+  font-size: 12px;
+}
+.font_14{
+  font-size: 14px;
+}
+.font_16 {
+  font-size: 16px;
+}
+.font_18 {
+  font-size: 18px;
+}
+.font_22 {
+  font-size: 22px;
+}
+
+/* --------Font styles---------------*/
+.bold{
+  font-weight: bold;
+}
+.italic{
+  font-weight: italic;
+}
+
+/* --------Icon sizes---------------*/
+.ico_12 {
+  width: 12px;
+  height: 12px;
+}
+.ico_16 {
+  width: 16px;
+  height: 16px;
+}
+.ico_24 {
+  width: 24px;
+  height: 24px;
+}
+.ico_32 {
+  width: 32px;
+  height: 32px;
+}
+.ico_36 {
+  width: 36px;
+  height: 36px;
+}
+.ico_48 {
+  width: 48px;
+  height: 48px;
+}
+.ico_62 {
+  width: 62px;
+  height: 62px;
+}
+.ico_96 {
+  width: 96px;
+  height: 96px;
+}
+.ico_108 {
+  width: 108px;
+  height: 108px;
+}
+.width_98p{
+  width: 98% !important;
+}
+.width_90p{
+  width: 90% !important;
+}
+.width_80p{
+  width: 80% !important;
+}
+.width_25p{
+  width: 25% !important;
+}
+.width_50p{
+  width: 50% !important;
+}
+.width_40p{
+  width: 40% !important;
+}
+.width_30p{
+  width: 30% !important;
+}
+.width_35p{
+  width: 35% !important;
+}
+.width_65p{
+  width: 65% !important;
+}
+.width_20p {
+  width: 20% !important;
+}
+.width_100p {
+  width: 100% !important;
+}
+.cover{
+  width: 100%;
+  height: 100%;
+}
+/**** Logo and Message *****/
+.home_bg {
+  background-image: url("../images/login_splash.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+#login-form{
+  margin-top:60%;
+}
+.home_bg input,
+.forgotPassword input{
+  height: 35px;
+  padding: 5px;
+}
+.text_ellipsis{
+  text-overflow:ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.btn-success,
+.btn-success:hover,
+.btn-success:active {
+  background: #00b551!important;
+  border: 1px solid #00b551;
+}
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:active {
+  background: #d03530!important;
+  border: 1px solid #d03530;
+}
+#map{
+  width: 100%;
+  height: 250px;
+  border:1px solid black;
+}
+.force_clear {
+    margin-left: -45px;
+}
+.bulk_upload {
+    margin-left: -190px;
+    position: fixed;
+}
+.timer_container {
+    position: absolute;
+    float: right;
+    width: 100%;
+    margin-top: 12px;
+    z-index: -1;
+}
+.timer_container .timer{
+    font-size: 18px;
+    font-weight: bold;
+    padding-top: 7px;
+    padding-right:5px;
+    color: #D5271E;
+}
+.timer_container img {
+    margin: 5px;
+}
+.timer_container .timer_width {
+    width: 80px;
+}

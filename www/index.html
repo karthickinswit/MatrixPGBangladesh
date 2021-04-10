@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <link href="js/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="js/lib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/ajax-loader.css">
+        <link href="css/common.css" rel="stylesheet">
+        <link href="css/audit.css" rel="stylesheet">
+        <link href="css/forgotpassword.css" rel="stylesheet">
+        <link href="js/lib/select2-4.0.1/dist/css/select2.css" rel="stylesheet">
+        
+        <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPx6WPrL00fBGgmWBP4feuXHpXKSduABM&sensor=false"></script>-->
+        <script type="text/javascript" data-main="js/main.js" src="js/lib/require-min.js"></script>
+        <script type="application/javascript" src="js/lib/iscroll.js"></script>
+        <!--<script type="text/javascript" src="js/utilities_web.js"></script>-->
+        <script type="text/javascript" src="js/utilities_mobile.js"></script>
+        <script type="application/javascript" src="js/localStorage/localStorage.js"></script>
+        <script type="application/javascript" src="js/sqliteTables/assignedAuditTable.js"></script>
+        <script type="application/javascript" src="js/sqliteTables/completedAuditTable.js"></script>
+        <script type="application/javascript" src="js/sqliteTables/normTable.js"></script>
+        <script type="application/javascript" src="js/sqliteTables/productTable.js"></script>
+        <script type="application/javascript" src="js/sqliteTables/commonTable.js"></script>
+        <script type="application/javascript" src="js/sqliteTables/auditHistoryTable.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <title>Matrix</title>
+    </head>
+    <body>
+        <span class="timer_container" style="display:none;">
+            <span class="timer_width pull-right"><img src="images/matrix_icons/timer.png" class="ico_24">
+            <span class="timer pull-right"></span>
+           </span>
+        </span>
+        <div id="content" class="cover content animate"></div>
+        <div class="loader-container"></div>
+    </body>
+</html>

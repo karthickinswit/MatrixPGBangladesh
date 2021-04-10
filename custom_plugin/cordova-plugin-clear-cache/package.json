@@ -1,0 +1,22 @@
+{
+  "name": "cordova-plugin-clear-cache",
+  "version": "0.1.0",
+  "description": "Clear activity cache",
+  "cordova": {
+    "id": "cordova-plugin-clear-cache",
+    "platforms": [
+      "android",
+      "ios",
+      "wp7"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "hello",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "chris",
+  "license": "Apache-2"
+}

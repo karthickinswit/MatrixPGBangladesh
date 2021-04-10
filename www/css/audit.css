@@ -1,0 +1,608 @@
+/*Login page css*/
+.loginpage .control-group {
+	margin-top: 85%;
+	text-align: center;
+}
+.loginpage .placeholder_color {
+	color: grey;
+}
+.loginpage .user_name{
+	padding-bottom: 10px;
+}
+.loginpage .user_password{
+	padding-bottom: 10px;
+}
+.loginpage .caption{
+	position: absolute;
+	left: 50%;
+	margin-left: -40px;
+}
+/*Audits related css*/
+.audits .audit_header{
+	height: 60px;
+	border-bottom: 3px solid #03549c;
+}
+.audit_header .center_content {
+	width: 100%;
+    text-indent: 10px;
+}
+.audit_header .logo {
+	margin: 0 7px;
+}
+.audits .back {
+	float: left;
+	margin : 10px 0 0 0;
+}
+.audits .left_content{
+	font-weight: bolder;
+    color: #03549c;
+    height: 100%;
+    line-height: 3;
+    //border-left: 1px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0 20px 0 45px;
+    display: block;
+}
+.audits .header_border_left {
+    border-left: 1px solid #ddd;
+}
+.audits .audit_list{
+    margin-top: 17px;
+}
+.audit_home_header .left_content {
+	margin: 0 20px 0 60px;
+}
+.audits .audit{
+	display: block;
+	border-bottom: 1px solid #ddd;
+	padding: 5px 0;
+	position: relative;
+}
+.audits .assigned_date, .audits .store_code{
+	display: block;
+/*	padding-left: 36px;*/
+}
+.audits .name {
+	line-height: normal;
+	width: 100%;
+	color: #000000!important;
+	font-weight: bold;
+	opacity: 0.9;
+	display: inline-block;
+	margin: 0 0 -3px 0;
+}
+.audits span{
+	color: #337ab7!important;
+}
+.audits i{
+	color: #5d6162;
+	font-style: normal;
+	display: inline-block;
+}
+.audits .info{
+	line-height: 40px;
+	color: black;
+	border-bottom: 1px solid #ddd;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.audits .search{
+	padding: 5px;
+	width: 98%;
+	margin: 5px 1%;
+	border: 1px solid #ddd;
+	border-radius: 5px!important;
+	background: url("../images/matrix_icons/search_grey_48.png") no-repeat center;
+	background-position: 100%;
+	background-size: 24px 24px;
+}
+.audits .btn{
+	width: 100%;
+/*	font-size: 20px;*/
+	font-size: 18px;
+	line-height: 28px;
+}
+.adt_status select{
+	width: 100%;
+	padding: 5px;
+}
+.audits .resource_content{
+	display: inline-block;
+	margin: 0 40px 0 0px;
+	width: 220px;
+}
+.audits .status_ico {
+	float: left;
+}
+.audits .con_adt_option{
+	background: #eee;
+	text-align: center;
+	color:#23527c;
+}
+.audits .con_adt_option input{
+	margin: 10px;
+}
+.audits .audit_continue, .audits .upload_audits{
+	top:60px;
+}
+.audits .view_container,
+.audits .audit_details {
+	padding: 5px;
+}
+
+.audits .photo_block, .audits .product_done{
+	position: relative;
+	margin: 6.5%;
+}
+.audits .question select{
+	margin-left: 6.5%;
+	width: 88.5%;
+	padding: 2.5%;
+	font-size: 18px;
+}
+.audits .product_name{
+	margin: 10px 2.5%;
+	width: 95%;
+	font-size: 16px;
+	font-weight: bold;
+}
+.audits .product_header, .audits .score_header{
+	width: 100%;
+	height: 50px;
+	background: #03549c;
+	color: #ffffff;
+	text-align: center;
+	display: table;
+}
+.audits .score_header{
+	line-height: 2.5;
+	font-size: 18px
+}
+.audits .product_header h2 {
+	margin: 0;
+	vertical-align: middle;
+	display: table-cell;
+}
+.audits > .question{
+	margin-top: 20px;
+}
+.audits .take_store_photo,
+.audits .take_product_photo,
+.audits .take_signature_photo,
+.audits .non_execution_btn {
+	width: 95%;
+	text-align: center;
+	margin: 2.5%;
+}
+.audits .icon_photo{
+	background-image: url("../images/matrix_icons/take_photo_48.png");
+}
+.audits .left_arrow{
+	line-height: 5;
+	margin-right: 5px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.audits .left_arrow img {
+	vertical-align: middle;
+}
+.audits .no_audit{
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	margin:40px;
+}
+.audits .success_container{
+	text-align: center;
+    margin-top: 20%;
+}
+.audit img {
+	vertical-align: top;
+}
+.audit .resource_content img {
+	vertical-align: middle;
+}
+.success_container img{
+	width: 64px;
+}
+.success_container p{
+	margin: 20px;
+}
+.products {
+	margin: 0 0 10px 0;
+}
+.products a{
+	cursor: pointer;
+	border: none;
+	border-bottom: 2px solid #ddd;
+	display: block;
+	padding: 10px;
+}
+.aud_confirmation{
+	width: 7%;
+	height: 20px;
+}
+.products_list .verify_audit, 
+.audits .go_next, 
+.audits .complete_audit,
+.audits .product_done,
+.audits .upload_audit{
+	width: 95%;
+	text-align: center;
+	margin-left: 2.5%;
+} 
+.products_list .verify_audit, 
+.audits .go_next{
+	margin-bottom: 2.5%;
+}
+.products a span{
+    font-weight: bold;
+    margin-left: 24px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+    margin-right: 24px;
+    line-height: 30px;
+}
+.products a .arrow_left {
+	position: absolute;
+	right: 16px;
+	top: 13px;
+}
+.v_products{
+	padding: 0;
+}
+.v_products .edit{
+	float: right;
+}
+.details_container ol:first-child .p_header {
+	margin-top:-3px;
+}
+.v_products .p_header{
+	color: white;
+	background: #03549c!important;
+	height: 42px;
+	padding: 5px;
+	line-height: 30px;
+	text-indent: 10px;
+}
+.v_products .question{
+	border-bottom: 1px solid #ddd;
+}
+.v_products .question:last-child{
+	border-bottom: none;
+}
+.v_products .optionName,
+.v_products .remarkName {
+	color: #777;
+	margin-left: 20px;
+}
+.audits .retake_photo{
+	width: 60px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -30px;
+	font-weight: bolder;
+	background: black;
+	border-radius: 20px;
+	padding: 5px;
+	font-size: 16px;
+	opacity: 0.6;
+	color: aqua;
+	cursor: pointer;
+}
+
+/**Audits table**/
+.audit_details table tr:first-child td {
+	border-top:none;
+}
+.audit_details table tr td:nth-child(1) {
+	text-align: center;
+}
+.audit_details table tr td:nth-child(2) {
+	border-left: 1px solid #ccc;
+	width: 35%;
+}
+.audit_details table tr td {
+	padding: 8px 8px;
+}
+.audit_details table tr td:nth-child(3) {
+	color: #03549c;
+	position: relative;
+}
+.audit_details table tr td:nth-child(3):before {
+    content: ":";
+    position: absolute;
+    left: 0;
+}
+.con_adt_status, .con_adt_header {
+	margin: 10px 0;
+}
+.audits .adt_status{
+	margin: 0 0 20px 0;
+}
+
+/***Questions***/
+.question {
+	padding: 10px 0;
+}
+
+/***For Scroll Common css**/
+.scroll_parent {
+	position: absolute;
+	top: 150px; /*this may vary based on the header and search*/
+	bottom: 0px;
+	left: 0;
+	width: 100%;
+	z-index: 0;
+}
+.scroll_ele {
+	width: 100%;
+	margin: 0px;
+	position: absolute;
+}
+.audits .products_list,
+.audits .audit_score,
+.audits .details_container {
+	top:60px;
+}
+.audits .audit_details{
+	top:310px;
+}
+.audits .question_list {
+	top: 110px;
+}
+.audits .table i {
+	width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-size: cover;
+    vertical-align: top;
+}
+.aud_distributor {
+	background: url("../images/matrix_icons/site_name.png")
+}
+.aud_location {
+	background: url("../images/matrix_icons/location.png")	
+}
+.aud_branch {
+	background: url("../images/matrix_icons/branch_name.png")	
+}
+.aud_storecode {
+	background: url("../images/matrix_icons/store_code.png")	
+}
+.aud_storename {
+	background: url("../images/matrix_icons/store_name.png")	
+}
+.aud_address {
+	background: url("../images/matrix_icons/address.png")	
+}
+.aud_channel {
+	background: url("../images/matrix_icons/channel.png")	
+}
+.aud_auditor {
+	background: url("../images/matrix_icons/auditor_name.png")	
+}
+.aud_auditorcode {
+	background: url("../images/matrix_icons/auditor_code.png")	
+}
+.aud_date {
+	background: url("../images/matrix_icons/date_audit.png")	
+}
+.edit_audit {
+	background: url("../images/matrix_icons/edit_audit.png");
+	background-size: cover;
+	margin: 0 10px 0 0;
+}
+.audits .store_score{
+	text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid gray;
+}
+.audits .brand_name{
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+}
+.audits .brand_score{
+	font-size: 14px;
+	color: #777;
+}
+.audits .store_score b{
+    color: red;
+}
+.logout_ico {
+	background: url("../images/matrix_icons/signout.png");
+	background-size: cover;
+	vertical-align: -3px;
+	margin: 10px;
+}
+.force_clear_ico {
+	background: url("../images/matrix_icons/force_clear.png");
+	background-size: cover;
+	vertical-align: -3px;
+	margin: 10px;
+}
+.modal_close {
+	background: url("../images/matrix_icons/close_white.png");
+	background-size: cover;
+}
+.refresh_ico {
+	background: url("../images/matrix_icons/refresh.png");
+	background-size: cover;
+}
+.upload_ico{
+	background: url("../images/matrix_icons/upload.png");
+	background-size: cover;
+	vertical-align: -3px;
+	margin:18px 20px 0px 0px;
+}
+.audits .modal-dialog {
+	background: #fff;
+}
+.audits .modal-dialog h4 {
+	margin: 0;
+}
+.audits .modal-dialog {
+	border-radius: 10px;
+}
+.audits .modal-header {
+	background: #03549c;
+	color: #fff;
+	border-radius: 10px 10px 0 0;
+}
+.audits .modal .panel {
+	border: none;
+}
+.audits .select2-container--default .select2-selection--single {
+  border-radius: 0;
+  height: 30px;
+  text-align: left;
+}
+
+.audits .filterValues {
+	overflow: hidden;
+	background: #03549c;
+	padding: 2px 5px 5px 5px;
+}
+.audits .filterValues li {
+	width: 33.3%;
+    float: left;
+    text-align: center;
+
+    background: #f6f6f6;
+    background: -webkit-linear-gradient(#fff,#dedede);
+    background: -webkit-linear-gradient(#fff,#dedede);
+    background: linear-gradient(#fff,#dedede);
+
+    text-indent: 5px;
+    border-right: 1px solid #03549c;
+    color: #03549c;
+    padding: 10px 0.5%;
+}
+.audits .filterValues li:first-child {
+	border-radius: 5px 0 0 5px;
+}
+.audits .filterValues li:last-child {
+	border-radius: 0 5px 5px 0 ;
+}
+.hotspot_ico {
+	background: url("../images/matrix_icons/hot_spot.png");
+    background-size: cover;
+/*    position: absolute;
+    left: 7px;*/
+	float: left;
+}
+
+/*****/
+.error {
+	background-color: #f2dede;
+	border-color: #ebccd1;
+	color: #a94442;
+}
+.error_message {
+	display: none;
+}
+.error .error_message {
+	display: block;
+	margin: 0 2.5%;
+	width: 95%;
+}
+.header_cont {
+	width: 115px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.audits .on_upload_audit {
+	margin: 0;
+	background: #03549c;
+
+}
+.on_upload_audit .center_content {
+	color: #fff;
+}
+.on_upload_audit .left_content {
+	border: none;
+	margin: 0 10px;
+}
+.on_upload_audit + .scroll_parent{
+	text-align: center;
+}
+.on_upload_audit + .scroll_parent .btn {
+    width: 98%;
+    margin: 1%;
+}
+.on_upload_audit + .scroll_parent img {
+	display: block;
+    margin:0 auto;
+}
+.upload_title {
+	padding: 10px;
+	font-size: 18px;
+}
+.offline_map{
+	width: 100%;
+    height: 248px!important;
+}
+.map_error_icon{
+	position: absolute;
+    top: 120px;
+    left: 45%;
+}
+.map_error_info{
+	position: absolute;
+    top: 180px;
+    color: white;
+    font-size: 18px;
+}
+.warning_msg{
+	text-align: center;
+	background: rgb(255, 69, 0);
+	border-radius: 30px;
+	width: 95%;
+	margin-left: 2.5%;
+	margin-top:5px;
+	color: rgb(245, 245, 245);
+}
+.upload_all{
+	width: 90% !important;
+	margin: 5%;
+}
+.color_code{
+	width: 35px;
+    height: 35px;
+    color: white;
+    display: inline-block;
+    border-radius: 35px;
+    text-align: center;
+    line-height: 2.5;
+    font-weight: bold;
+   /* margin-top:2px;*/
+}   
+.audit_channel_status{
+	display: inline-block;
+    width: 50px;
+    vertical-align: bottom;
+}
+
+.on_upload_audit + .scroll_parent .btn,
+.audits .go_audit_list,
+.audits .bulk_upload_retry {
+    width: 98%;
+    margin: 1%;
+}
+.audits .restart_audit{
+	width: 95%;
+	text-align: center;
+	margin-left: 2.5%;
+}
+.audits .restart_audit {
+    margin-top: 40px;
+}
