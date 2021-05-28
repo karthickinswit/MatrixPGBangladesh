@@ -121,6 +121,19 @@ define([
 
 			    	var cutOffTime = response.ProcessVariables.cutOffTime;
                     LocalStorage.setAuditTimeLimit(cutOffTime);
+					$('#forHours').hide();
+					$('#forMins').hide();
+					$('#forMinsLessThan10').hide();
+					if(cutOffTime < 60 && cutOffTime > 10){
+						$('#forMins').show();
+						console.log("Cutoff Time <60");
+					}else if(cutOffTime < 10){
+						$('#forMinsLessThan10').show();
+						console.log("Cutoff Time <10");
+					}else{
+						$('#forHours').show();
+						console.log("Cutoff Time >60");
+					}
 
 		    		if(response.ProcessVariables.isUpdate){
 			    		inswit.alert("Master data is changed!. Hereafter you can do audits based on new modification");

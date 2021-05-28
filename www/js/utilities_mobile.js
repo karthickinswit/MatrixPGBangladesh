@@ -1,8 +1,7 @@
 //var PROJECTID = "1c62737aae0d11e59d090050569cb68c";   //development
 var PROJECTID = "7cd25b1c8c7e11eba360c282e0885855"; //production
 //var PROJECTID = "97677c1832bc11e5a9bb0050569ccb08"; //demo
-//var PROJECTID = "4bae93ece73b11e8a9bf0050569ccb08"; //process
-
+// Don't use Old Process var PROJECTID = "4bae93ece73b11e8a9bf0050569ccb08"; // Old process
 //var PROJECTID = "59fc54e08bc911eba360c282e0885855"; //process
 
 var inswit = {
@@ -23,7 +22,7 @@ var inswit = {
 		password: "",
 	},
 	
-	VERSION : "1.0",
+	VERSION : "1.1",
 
 	LOGIN_CREDENTIAL: {
 		"email": "bangladesh_final@matrixbsindia.com",
@@ -492,13 +491,20 @@ var inswit = {
             success: function(response){    
                if(response.token) {
                		LocalStorage.setAccessToken(response.token);
-					   
-					cordova.plugins.IMEI(function (err, imei) {
-						console.log('imei', imei)
-						callback(imei);
-					});
-
-
+					   var version = device.version;
+					   console.log("Android Version:"+version);
+					   if(version < 10) {
+						try{
+						cordova.plugins.IMEI(function (err, imei) {
+								console.log('imei', imei)
+								callback(imei);
+						});
+						}catch(e){
+							console.log(e);
+						}
+					}else{
+								callback();
+					}
 				}else {
 					inswit.alert("Login Failed.Try Again!");
 					inswit.hideLoaderEl();

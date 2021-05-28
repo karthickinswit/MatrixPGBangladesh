@@ -222,5 +222,11 @@ a:hover, a:active {
     margin: 5px;
 }
 .timer_container .timer_width {
-    width: 80px;
+    width:  29%;
+}
+.timer_container .timer_width2 {
+  width:  25%;
+}
+.timer_container .timer_width3 {
+  width:  21%;
 }
