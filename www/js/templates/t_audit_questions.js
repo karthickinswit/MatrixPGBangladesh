@@ -13,19 +13,45 @@ define([],function(){
                             <button class="btn non_execution_btn">\
                                 <span>\
                                     <label class="checbox_label" for="non_exec">\
-                                        <input type="checkbox" name="tester" class="execution_checkbox" id="non_exec" value="Test1"  {{#isImage}} disabled {{/isImage}} {{#nonExecution}} checked {{/nonExecution}} >\
+                                        <input type="checkbox" name="tester" class="execution_checkbox" id="non_exec" value="Test1"  {{#nonExecution}} checked {{/nonExecution}} >\
                                         <span class="non_brand_txt"> Device Not executed </span>\
                                     </label>\
                                 </span>\
                             </button>\
                             {{#norms}}\
                                 {{#photoBox}}\
+                                 {{#isSubbrand}}\
+                                    <div class="question {{normId}} {{#isSubbrand}}isSubbrand{{/isSubbrand}}" rel={{isConsider}} id=-1 data-field-type="photobox">\
+                                         <div class="product_name" id="{{normId}}" rel="{{normName}}">{{question}}\
+                                         <div class="checkbox_label1">\
+                                         <input type="checkbox" name="{{normId}}" class="execution_checkbox1" id="non_exec1" value="Test1"  {{#subNonExecution}} checked {{/subNonExecution}} >\
+                                         <span class="non_brand_txt"> Not executed </span>\
+                                         </div>\
+                                         </div>\
+                                            <div class="error_message">*Field is required</div>\
+                                                 {{#photoBox}}\
+                                                 {{#takePhoto}}\
+                                                    <button class="btn take_product_photo" id="{{normId}}" {{#nonExecution}} {{#isImage}}  disabled {{/isImage}}{{/nonExecution}} >\
+                                                        <img class="ico_16" src="images/matrix_icons/take_photo_48.png">\
+                                                        <i class="icon_photo"></i> Take Brand Photo\
+                                                    </button>\
+                                                 {{/takePhoto}}\
+                                            <div class="photo_block" id="{{normId}}">\
+                                                {{#isImage}}\
+                                                    <img src="{{imageURI}}" width="95%" height="200px" style="margin-left:2.5%">\
+                                                    <a class="retake_photo {{element}}">Retake</a>\
+                                                {{/isImage}}\
+                                            </div>\
+                                        {{/photoBox}}\
+                                    </div>\
+                                 {{/isSubbrand}}\
+                                 {{^isSubbrand}}\
                                     <div class="question" rel={{isConsider}} id=-1 data-field-type="photobox">\
                                          <div class="product_name" id="{{normId}}" rel="{{normName}}">{{question}}</div>\
                                          <div class="error_message">*Field is required</div>\
                                         {{#photoBox}}\
                                             {{#takePhoto}}\
-                                                <button class="btn take_product_photo" id="{{normId}}" {{#nonExecution}} disabled {{/nonExecution}}>\
+                                                <button class="btn take_product_photo" id="{{normId}}" {{#nonExecution}} {{#isImage}} disabled {{/isImage}} {{/nonExecution}}>\
                                                     <img class="ico_16" src="images/matrix_icons/take_photo_48.png">\
                                                     <i class="icon_photo"></i> Take Brand Photo\
                                                 </button>\
@@ -38,6 +64,7 @@ define([],function(){
                                             </div>\
                                         {{/photoBox}}\
                                     </div>\
+                                 {{/isSubbrand}}\
                                 {{/photoBox}}\
                             {{/norms}}\
                             <!--{{#takePhoto}}\

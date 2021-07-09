@@ -85,7 +85,7 @@ function populateRemarkTable(db, remarks, success, error) {
 
 function selectNorms(db, channelId, productId, priority, isFrontage, fn) {
 
-    var query = "select t1.norm_id, t1.store_score, t1.norm_order, t2.norm_name, t2.field_type from mxpg_pn_map t1 JOIN mxpg_norm t2 where t1.product_id=" + productId + " and t1.channel_id=" + channelId + " and t1.norm_id=t2.norm_id order by t1.norm_order ASC";
+    var query = "select t1.norm_id, t1.store_score, t1.norm_order, t1.is_subbrand, t2.norm_name, t2.field_type from mxpg_pn_map t1 JOIN mxpg_norm t2 where t1.product_id=" + productId + " and t1.channel_id=" + channelId + " and t1.norm_id=t2.norm_id order by t1.norm_order ASC";
     db.transaction(function(tx){
         tx.executeSql(query , [], function(tx, response) {
             var results = [];
@@ -105,6 +105,7 @@ function selectNorms(db, channelId, productId, priority, isFrontage, fn) {
                 temp.options = [];
                 temp.yes = [];
                 temp.no = [];
+                temp.isSubbrand=row.is_subbrand;
 
 
                 if(row.field_type == inswit.FIELD_TYPES.INT) {

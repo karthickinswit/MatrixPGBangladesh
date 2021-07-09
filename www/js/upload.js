@@ -418,6 +418,7 @@ define([
 					var productId = product.product_id;
 					var normId = product.norm_id;
 					var executionStatus = (product.non_execution == "true") ? true:false;
+					var subNonExecutionStatus = (product.sub_nonexecution == "true") ? true:false;
 
 					var photoId = "";
 					if(product.image_id){
@@ -428,7 +429,8 @@ define([
 						brandId:productId,
 						normId:normId,
 						photoId:photoId,
-						nonExecution: executionStatus
+						nonExecution: executionStatus,
+						subNonExecution:subNonExecutionStatus
 					}
 
 					auditDetails.push(detail);

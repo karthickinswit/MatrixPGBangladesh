@@ -22,7 +22,7 @@ var inswit = {
 		password: "",
 	},
 	
-	VERSION : "1.1",
+	VERSION : "1.2",
 
 	LOGIN_CREDENTIAL: {
 		"email": "bangladesh_final@matrixbsindia.com",
@@ -759,6 +759,7 @@ var inswit = {
 			
 			$("."+ takeEl + ", ." + retakeEl).removeClass("disable");
 			 $(".execution_checkbox").attr("disabled", true);
+			 $("."+normId).find(".execution_checkbox1").prop('disabled', true);
 
 		},function(err) {
 			var imageURI = $(".photo_block img").attr("src") || "";

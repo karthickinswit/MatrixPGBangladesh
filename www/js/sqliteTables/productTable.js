@@ -22,7 +22,7 @@ function getProductName(db, mId, pId, fn) {
 }
 
 function createProductNormMap(tx, success, error) {
-    var createStatement = "CREATE TABLE IF NOT EXISTS mxpg_pn_map(product_id TEXT, norm_id TEXT, channel_id TEXT, store_score BOOLEAN, norm_order NUMBER)";
+    var createStatement = "CREATE TABLE IF NOT EXISTS mxpg_pn_map(product_id TEXT, norm_id TEXT, channel_id TEXT, store_score BOOLEAN, norm_order NUMBER,is_subbrand BOOLEAN)";
     tx.executeSql(createStatement, [], success, error);
     var createIndex = "CREATE UNIQUE INDEX pnMapIndex ON mxpg_pn_map(product_id, norm_id, channel_id)";
     tx.executeSql(createIndex);
@@ -73,8 +73,8 @@ function populateProductNormMap(db, mapDetails, success, error) {
         for(var i = 0; i < mapDetails.length; i++){
             var mapData = mapDetails[i];
 
-            tx.executeSql('INSERT OR replace INTO mxpg_pn_map(product_id, norm_id, channel_id, store_score, norm_order) VALUES (?,?,?,?,?);',
-                [mapData.productId, mapData.normId, mapData.chanId, mapData.isConsider, mapData.normOrder]
+            tx.executeSql('INSERT OR replace INTO mxpg_pn_map(product_id, norm_id, channel_id, store_score, norm_order,is_subbrand) VALUES (?,?,?,?,?,?);',
+                [mapData.productId, mapData.normId, mapData.chanId, mapData.isConsider, mapData.normOrder,mapData.isSubbrand]
             , success, error);
         }
     });

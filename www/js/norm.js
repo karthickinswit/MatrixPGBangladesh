@@ -24,7 +24,8 @@ define([
 			"change .hotspot_decision" : "toggleHotspot",
 			"click .product_done": "done",
 			"click .back": "back",
-			"change .execution_checkbox": "nonExecutionBrand"
+			"change .execution_checkbox": "nonExecutionBrand",
+			"change .execution_checkbox1": "nonExecutionBrand1"
 		},
 
 		showNorms: function(mId, pId, product, hotspotPid){
@@ -84,12 +85,29 @@ define([
 
 								for(var i = 0; i < norms.length; i++){
 									var norm = norms[i];
-
-                                    norm.imageURI = results[i].imageURI;
-                                    norm.photoBox = true;
+									norm.isSubbrand=((norm.isSubbrand)=="true")?true:((pId=="74")?true:false);
+									for(var j=0;j<results.length;j++)
+										{
+											var result=results[j];
+											if(norm.normName==result.normName)
+											{
+												norm.subNonExecution=((result.subNonExecution)=="true")?true:false;
+												norm.imageURI = result.imageURI;
+                                    			norm.photoBox = true;
+												var isImage1 = false;
+												var imageURI = result.imageURI || "";
+												if(imageURI)
+												{
+													isImage1 = true;
+												}
+												norm.isImage=isImage1
+												break;
+											}
+										}
+                                    
 
                                     norm.takePhoto = true;
-                                    if(norm.imageURI.length > 0) {
+                                    if(norm.imageURI.length > 0 || norm.subNonExecution) {
                                         norm.takePhoto = false;
                                     }
 
@@ -143,24 +161,7 @@ define([
 									}
 								}
 
-								var isImage = false;
-								var imageURI = results[0].imageURI || "";
-								if(imageURI){
-									isImage = true;
-								}
-
-								/*var takePhoto = false;
-								if(!imageURI && priority == 6){
-									takePhoto = true;
-								}
-
-								if(!imageURI && priority == 10){
-									takePhoto = true;
-								}*/
-
-                               // var takePhoto = (results[0].nonExecution == "true")? true:false;
                                 var nonExecution = (results[0].nonExecution == "true")? true:false;
-
 								var html = Mustache.to_html(
 									template,
 									{
@@ -170,7 +171,7 @@ define([
 										"productId":pId,
 										"name":that.storeName,
 										//"imageURI":imageURI,
-										"isImage":isImage,
+										//"isImage":isImage,
 										//"takePhoto":takePhoto,
 										"element":"retake_product_photo",
 										"priority": priority,
@@ -180,15 +181,36 @@ define([
 
 								that.$el.empty().append(html);
 
-							/*	var nonExecution = results[0].nonExecution;
+								var nonExecution = results[0].nonExecution;
                                 var isChecked = (nonExecution == "true")? true:false;
                                 if(isChecked) {
                                     that.$el.find(".execution_checkbox").attr("checked", true);
                                     that.$el.find(".take_product_photo, .take_second_product_photo").prop('disabled', true);
-                                }else if(!isChecked && isImage) {
+									$(".question").find(".take_product_photo").prop('disabled', true);
+									$(".question").find(".check1").prop('disabled', true);
+									$(".question").find(".execution_checkbox1").prop('disabled', true);
+									$(".question").find(".photo_block .retake_product_photo").prop('disabled', true);
+                                }else if(!isChecked) {
                                     that.$el.find(".execution_checkbox").attr("disabled", true);
-                                }*/
+								}
+								
+								for(var i=0;i<norms.length;i++)
+								{
+									var norm=norms[i];
+									if(!norm.subNonExecution)
+									{
+										$("."+norm.normId).find(".take_product_photo").prop('disabled', true);
+										$("."+norm.normId).find(".photo_block .retake_product_photo").prop('disabled', true);
+										$("."+norm.normId).find(".execution_checkbox1").prop('disabled', true);
+									}
+									else
+									{							
+										$("."+norm.normId).find(".take_product_photo").prop('disabled', true);
+										$("."+norm.normId).find(".photo_block .retake_product_photo").prop('disabled', true);
+										$("."+norm.normId).find(".execution_checkbox1").prop('disabled', true);
+									}
 
+								}
 
 								//that.$el.find("#frontage_applicable").trigger("change");
 								that.$el.find("#device_applicable").trigger("change");
@@ -233,6 +255,7 @@ define([
 				}else{
 					//Render first time(Default options)
 					var callback = function(norms){
+						
 						//Set first question as a frontage norm
 						if(that.isFrontage && norms[0]){
 							norms[0].isFrontage = that.isFrontage;
@@ -245,6 +268,12 @@ define([
 						if(that.isDevice && norms[0]) {
                             norms[0].isDevice = that.isDevice;
                         }
+						for (var i=0;i<norms.length;i++)
+						{
+							var norm=norms[i];
+							norm.isSubbrand=((norm.isSubbrand)=="true")?true:((pId=="74")?true:false);
+
+						}
 
 						selectProduct(db, pId, channelId, function(product){
 							require(['templates/t_audit_questions'], function(template){
@@ -255,7 +284,8 @@ define([
 								norms.productName = productName;
 								norms.productId = pId;
 								norms.mId = mId;
-
+								
+								console.log(norms);
 								var html = Mustache.to_html(
 									template,
 									{
@@ -732,6 +762,7 @@ define([
 		getValues: function(){
 
 			var elements = this.$el.find(".question");
+			var isSubbrands=this.$el.find(".isSubbrand");
 			this.$(".norms").find(".error").removeClass("error");
 
             var productName = this.$el.find(".product_header h2").text();
@@ -747,7 +778,9 @@ define([
 				var isConsider = normEl.attr("rel") || false;
 				var normName = normEl.find(".product_name").attr("rel");
 				var normId = normEl.find(".product_name").attr("id");
+				//var isSubbrand=$("."+normEl+".product_name .checkbox_label1 .execution_checkbox1");
 
+				
 				var fieldType = normEl.attr("data-field-type");
 
 				var nonExecution = $(".execution_checkbox").is(':checked') ? true:false;
@@ -757,9 +790,25 @@ define([
 				if(fieldType == "photobox") {
                    var imageUrl = normEl.find(".photo_block img").attr("src") || "";
 
-                   var isChecked = $(".execution_checkbox").is(':checked')
-
-                   if(imageUrl.length == 0 && !isChecked) {
+                   var isChecked = $(".execution_checkbox").is(':checked');
+				   
+				   
+				   var subNonExecution=normEl.find(".product_name .checkbox_label1 .execution_checkbox1").is(':checked')? true:false;
+					
+					// for(var i=0;i<isSubbrands.length;i++)
+					// {
+					// 	var subnormEl = $(isSubbrands[i]);
+					// 	var subnormName = subnormEl.find(".product_name").attr("rel");
+						
+					// 	if(normName==subnormName)
+					// 	{
+					// 	isChecked=true;
+					// 	break;
+					// 	}
+						
+					// }
+					//isChecked=true;
+                   if(imageUrl.length == 0 && !isChecked && !subNonExecution) {
                        normEl.addClass("error");
                        this.scrollView.scrollToElement(normEl[0]);
                       // inswit.alert(inswit.ErrorMessages.checkProceed);
@@ -781,6 +830,7 @@ define([
                     norm.remarkName = "";
                     norm.remarkId = "";
                     norm.nonExecution = nonExecution;
+					norm.subNonExecution=subNonExecution;
 
                     norms.push(norm);
 
@@ -878,8 +928,28 @@ define([
 		    var target = $(event.currentTarget);
             if(target.is(':checked')) {
                $(".question").find(".take_product_photo").prop('disabled', true);
+			   $(".question").find(".check1").prop('disabled', true);
+			   $(".question").find(".execution_checkbox1").prop('disabled', true);
+			   $(".question").find(".photo_block .retake_product_photo").prop('disabled', true);
             }else {
                $(".question").find(".take_product_photo").prop('disabled', false);
+			   $(".question").find(".check1").prop('disabled', false);
+			   $(".question").find(".execution_checkbox1").prop('disabled', false);
+			   $(".question").find(".execution_checkbox1").prop('checked', false);
+			   $(".question").find(".photo_block .retake_product_photo").prop('disabled', false);
+
+            }
+        },
+		nonExecutionBrand1: function(event) {
+		    var target = $(event.currentTarget);
+			var targetId=event.currentTarget.name;
+            if(target.is(':checked')) {
+               $("."+targetId).find(".take_product_photo").prop('disabled', true);
+			   $("."+targetId).find(".photo_block .retake_product_photo").prop('disabled', true);
+            }else {
+               $("."+targetId).find(".take_product_photo").prop('disabled', false);
+			   $("."+targetId).find(".photo_block").prop('disabled', false);
+			   $("."+targetId).find(".photo_block .retake_product_photo").prop('disabled', false);
             }
         }
 

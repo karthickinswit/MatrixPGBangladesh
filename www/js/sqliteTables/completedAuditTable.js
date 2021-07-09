@@ -1,7 +1,7 @@
 /**
  * This method create table to completed audit details.
  */
-function createCompAuditTable(tx, success, error) {
+ function createCompAuditTable(tx, success, error) {
     var createStatement = "CREATE TABLE IF NOT EXISTS mxpg_comp_audits(store_id TEXT, id TEXT, comp_audit BOOLEAN, audited BOOLEAN, option_id TEXT, audit_id TEXT, store_image TEXT, sign_image TEXT, lat TEXT, lng TEXT, store_image_id TEXT, sign_image_id TEXT)";
     tx.executeSql(createStatement, [], success, error);
     var createIndex = "CREATE UNIQUE INDEX compAuditIndex ON mxpg_comp_audits(audit_id, store_id)";
@@ -12,7 +12,7 @@ function createCompAuditTable(tx, success, error) {
  * This method create table to completed audit details.
  */
 function createCompProductTable(tx, success, error) {
-    var createStatement = "CREATE TABLE IF NOT EXISTS mxpg_comp_products(store_id TEXT, store_name TEXT, product_id TEXT, product_name TEXT, norm_id TEXT, norm_name TEXT, option_id TEXT, option_name TEXT, remark_id TEXT, remark_name TEXT, image TEXT, image_uri TEXT, audit_id TEXT, store_score BOOLEAN, priority NUMBER, non_execution TEXT DEFAULT 'false', image_id)";
+    var createStatement = "CREATE TABLE IF NOT EXISTS mxpg_comp_products(store_id TEXT, store_name TEXT, product_id TEXT, product_name TEXT, norm_id TEXT, norm_name TEXT, option_id TEXT, option_name TEXT, remark_id TEXT, remark_name TEXT, image TEXT, image_uri TEXT, audit_id TEXT, store_score BOOLEAN, priority NUMBER, non_execution TEXT DEFAULT 'false',sub_nonexecution TEXT DEFAULT 'false', image_id)";
     tx.executeSql(createStatement, [], success, error);
     var createIndex = "CREATE UNIQUE INDEX compProductIndex ON mxpg_comp_products(audit_id, store_id, product_id, norm_id)";
     tx.executeSql(createIndex);
@@ -58,8 +58,8 @@ function populateCompProductTable(db, product, callback) {
             var norm = product.norms[i];
             norm.isConsider == "true" ? true : false;
 
-            tx.executeSql('INSERT OR replace INTO  mxpg_comp_products(store_id, store_name, product_id, product_name, norm_id, norm_name, option_id, option_name, remark_id, remark_name, image, image_uri, audit_id, store_score, priority, image_id, non_execution) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);',
-                [storeId, storeName, norm.productId, norm.productName, norm.normId, norm.normName, norm.optionId, norm.optionName, norm.remarkId, norm.remarkName, norm.imageUrl, norm.imageUrl, auditId, norm.isConsider, priority, imageId, norm.nonExecution]);
+            tx.executeSql('INSERT OR replace INTO  mxpg_comp_products(store_id, store_name, product_id, product_name, norm_id, norm_name, option_id, option_name, remark_id, remark_name, image, image_uri, audit_id, store_score, priority, image_id, non_execution,sub_nonexecution) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);',
+                [storeId, storeName, norm.productId, norm.productName, norm.normId, norm.normName, norm.optionId, norm.optionName, norm.remarkId, norm.remarkName, norm.imageUrl, norm.imageUrl, auditId, norm.isConsider, priority, imageId, norm.nonExecution,norm.subNonExecution]);
 
             if(i+1 == length){
                 callback();
@@ -163,7 +163,7 @@ function clearCompProducts(db, auditId, storeId, fn) {
 
 function selectProductsToVerify(db, auditId, storeId, productId, fn) {
 
-    var query = "select store_id as storeId, product_id as productId, product_name as productName, norm_id as normId, norm_name  as normName, option_id  as optionId, option_name as optionName, remark_id as remarkId, remark_name as remarkName, image, image_uri as imageURI, audit_id as auditId, store_score as isConsider, priority, non_execution as nonExecution from mxpg_comp_products where audit_id='" + auditId + "'";
+    var query = "select store_id as storeId, product_id as productId, product_name as productName, norm_id as normId, norm_name  as normName, option_id  as optionId, option_name as optionName, remark_id as remarkId, remark_name as remarkName, image, image_uri as imageURI, audit_id as auditId, store_score as isConsider, priority, non_execution as nonExecution,sub_nonexecution as subNonExecution from mxpg_comp_products where audit_id='" + auditId + "'";
 
     if(storeId){
         query += " AND store_id='" + storeId + "'";
