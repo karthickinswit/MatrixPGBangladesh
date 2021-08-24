@@ -40,7 +40,8 @@ define(["backbone", "bootstrap", "mustache"], function() {
             "audits/:id/products/:id" : "showNorms",
             "audits/:id/product/verify" : "verifyAudit",
             "audits/:id/upload" : "onUploadAudit",
-             "audits/upload/all" : "uploadAll"
+             "audits/upload/all" : "uploadAll",
+             "register" : "showRegister",
             /* "audits/upload" : "uploadAll"*/
         },
 
@@ -64,6 +65,16 @@ define(["backbone", "bootstrap", "mustache"], function() {
                 });  
             }
             $(".timer_container").hide();
+        },
+        showRegister: function() {
+            var that = this;
+            require(["register"], function(RegisterUniqueId){
+                var registerModel = new RegisterUniqueId.Model({});
+                var registerView = new RegisterUniqueId.View({model:registerModel});
+
+                registerView.render();
+                that.appendView(registerView);
+            });
         },
 
         getAuditList: function(){

@@ -13,6 +13,7 @@ define([],function(){
           <div id="login-btn" class="btn btn-primary width_90p">Sign In</div>\
         </div>\
         <div class="forgot_password"><a href="#forgotpassword">Forgot Password</a></div>\
+        <div class="forgot_password" ><a href="#register">Register</a></div>\
       </div>\
     </div>\
 </div>';

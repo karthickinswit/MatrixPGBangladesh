@@ -25,6 +25,7 @@
 .audit_header .center_content {
 	width: 100%;
     text-indent: 10px;
+	
 }
 .audit_header .logo {
 	margin: 0 7px;
@@ -41,7 +42,7 @@
     border-left: 1px solid #ddd;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    white-space: nowrap; 
     margin: 0 20px 0 45px;
     display: block;
 }

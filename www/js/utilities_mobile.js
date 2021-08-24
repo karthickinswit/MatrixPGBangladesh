@@ -22,7 +22,7 @@ var inswit = {
 		password: "",
 	},
 	
-	VERSION : "1.2",
+	VERSION : "1.3",
 
 	LOGIN_CREDENTIAL: {
 		"email": "bangladesh_final@matrixbsindia.com",
@@ -38,8 +38,8 @@ var inswit = {
 
 	LOGIN_PROCESS: {
 		"projectId":PROJECTID,
-		"workflowId":"cf55f437de6c42168d0e5011619d0831",
-		"processId":"3e862cbb0f8147059a03821aee9bc0a5"
+		"workflowId":"573414daf20f11eba360c282e0885855",
+		"processId":"57660eb8f20f11eba360c282e0885855"
 	},
 		 
 	UPLOAD_PROCESS: {
@@ -58,6 +58,11 @@ var inswit = {
 		"projectId":PROJECTID,
 		"workflowId":"8745dec72e414a7bb668518bb252e102",
 		"processId":"89ac5dfd982e428a99e87e72698731de"
+	},
+	REGISTER_PROCESS: {
+		"projectId":PROJECTID,
+		"workflowId":"1057540af03411eba360c282e0885855",
+		"processId":"106ee9d0f03411eba360c282e0885855"
 	},
 		 
 	GET_DETAILED_AUDIT_PROCESS: {
@@ -505,6 +510,7 @@ var inswit = {
 					}else{
 								callback();
 					}
+				//	callback();
 				}else {
 					inswit.alert("Login Failed.Try Again!");
 					inswit.hideLoaderEl();

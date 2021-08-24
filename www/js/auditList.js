@@ -97,6 +97,10 @@ define([
 
 		getAudits: function(event) {
 			var that = this;
+			$('#forHours').hide();
+			$('#forMins').hide();
+			$('#forMinsLessThan10').hide();
+			$('#forHours').show();
 
 			var processVariables = {
 			    "projectId":inswit.GET_ASSIGNED_AUDIT_PROCESS.projectId,

@@ -230,3 +230,22 @@ a:hover, a:active {
 .timer_container .timer_width3 {
   width:  21%;
 }
+.register_padding_top{
+  padding-top: 10% !important;
+}
+.unique_text{
+  font-size: 18px;
+  color: #000;
+  font-style: italic;
+  background-color: black;
+  color: #fff;
+  display: inline;
+  padding: 0.5rem;
+  -webkit-box-decoration-break: clone;
+}
+.uuid_txt {
+  color: #000;
+  font-weight: bold;
+  font-size: 32px;
+  
+}

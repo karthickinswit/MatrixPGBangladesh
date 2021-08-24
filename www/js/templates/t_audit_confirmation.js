@@ -4,7 +4,7 @@ define([],function(){
                             <img src="images/matrix_icons/back_arrow_red_72.png" class="ico_36">\
                         </div>-->\
                         <div class="left_content">\
-                            <div class="center_content bold font_18">{{name}}</div>\
+                            <div class="center_content bold font_18" style="text-indent: 10px;width: 70%;white-space: pre;overflow: hidden;text-overflow: inherit;">{{name}}</div>\
                         </div>\
                     </div>\
                     <div id="continue_audit_wrapper" class="scroll_parent audit_continue">\
